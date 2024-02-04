@@ -35,17 +35,6 @@ impl DbKind for Scheme {
         sc.define_name("owner", Scopes::Character, key);
         sc.define_name("exposed", Scopes::Bool, key);
 
-        // let modif = format!("max_{key}_schemes_add");
-        // data.verify_exists_implied(Item::ModifierFormat, &modif, key);
-        // let modif = format!("{key}_scheme_power_add");
-        // data.verify_exists_implied(Item::ModifierFormat, &modif, key);
-        // let modif = format!("{key}_scheme_power_mult");
-        // data.verify_exists_implied(Item::ModifierFormat, &modif, key);
-        // let modif = format!("{key}_scheme_resistance_add");
-        // data.verify_exists_implied(Item::ModifierFormat, &modif, key);
-        // let modif = format!("{key}_scheme_resistance_mult");
-        // data.verify_exists_implied(Item::ModifierFormat, &modif, key);
-
         data.verify_exists(Item::Localization, key);
         let loca = format!("{key}_action");
         data.verify_exists_implied(Item::Localization, &loca, key);

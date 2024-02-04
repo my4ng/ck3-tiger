@@ -46,13 +46,6 @@ impl DbKind for Region {
         // Probably when it's tooltipped for geographical_region or when the gui code does GetName
         data.mark_used(Item::Localization, key.as_str());
 
-        if block.field_value_is("generate_modifiers", "yes") {
-            let modif = format!("{key}_development_growth");
-            data.verify_exists_implied(Item::ModifierFormat, &modif, key);
-            let modif = format!("{key}_development_growth_factor");
-            data.verify_exists_implied(Item::ModifierFormat, &modif, key);
-        }
-
         vd.field_bool("generate_modifiers");
         vd.field_bool("graphical");
         vd.field_validated_block("color", validate_color);

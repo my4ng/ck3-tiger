@@ -330,12 +330,6 @@ fn validate_trait_track(key: &Token, block: &Block, data: &Everything, warn_key:
         vd.multi_field_validated_block("faith_modifier", validate_faith_modifier);
         validate_modifs(block, data, ModifKinds::Character, vd);
     });
-    // let modif = format!("{key}_xp_degradation_mult");
-    // data.verify_exists_implied(Item::ModifierFormat, &modif, warn_key);
-    // let modif = format!("{key}_xp_gain_mult");
-    // data.verify_exists_implied(Item::ModifierFormat, &modif, warn_key);
-    // let modif = format!("{key}_xp_loss_mult");
-    // data.verify_exists_implied(Item::ModifierFormat, &modif, warn_key);
 
     let loca = format!("trait_track_{key}");
     data.verify_exists_implied(Item::Localization, &loca, warn_key);

@@ -23,24 +23,7 @@ impl HoldingType {
 }
 
 impl DbKind for HoldingType {
-    fn validate(&self, key: &Token, block: &Block, data: &Everything) {
-        let modif = format!("{key}_build_speed");
-        data.verify_exists_implied(Item::ModifierFormat, &modif, key);
-        let modif = format!("{key}_build_gold_cost");
-        data.verify_exists_implied(Item::ModifierFormat, &modif, key);
-        let modif = format!("{key}_build_piety_cost");
-        data.verify_exists_implied(Item::ModifierFormat, &modif, key);
-        let modif = format!("{key}_build_prestige_cost");
-        data.verify_exists_implied(Item::ModifierFormat, &modif, key);
-        let modif = format!("{key}_holding_build_speed");
-        data.verify_exists_implied(Item::ModifierFormat, &modif, key);
-        let modif = format!("{key}_holding_build_gold_cost");
-        data.verify_exists_implied(Item::ModifierFormat, &modif, key);
-        let modif = format!("{key}_holding_build_piety_cost");
-        data.verify_exists_implied(Item::ModifierFormat, &modif, key);
-        let modif = format!("{key}_holding_build_prestige_cost");
-        data.verify_exists_implied(Item::ModifierFormat, &modif, key);
-
+    fn validate(&self, _key: &Token, block: &Block, data: &Everything) {
         let mut vd = Validator::new(block, data);
         vd.multi_field_value("flag");
         vd.field_item("primary_building", Item::Building);

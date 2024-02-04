@@ -29,23 +29,6 @@ impl DbKind for VassalStance {
         let mut sc = ScopeContext::new(Scopes::Character, key);
         sc.define_name("liege", Scopes::Character, key);
 
-        // `_ai_<value>` are checked in `lookup_modif` when called
-        // as their format may not be defined if not used
-        for sfx in [
-            "_opinion",
-            "_same_faith_opinion",
-            "_different_faith_opinion",
-            "_same_culture_opinion",
-            "_different_culture_opinion",
-            "_tax_contribution_add",
-            "_tax_contribution_mult",
-            "_levy_contribution_add",
-            "_levy_contribution_mult",
-        ] {
-            let modif = format!("{key}{sfx}");
-            data.verify_exists_implied(Item::ModifierFormat, &modif, key);
-        }
-
         vd.multi_field_validated_block("is_valid", |block, data| {
             validate_trigger(block, data, &mut sc, Tooltipped::No);
         });
